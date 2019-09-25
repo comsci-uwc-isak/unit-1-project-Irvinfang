@@ -19,6 +19,10 @@ The car rental program can be divided into 8 parts which are to install the syst
 
 Design
 ---------
+### First sketch of system
+![CarRental](System.jpg)
+**Fig. 1** This diagram shows the main components of the minimal rental app.
+It includes the input/output and main action
 
 Development
 --------
