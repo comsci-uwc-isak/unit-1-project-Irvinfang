@@ -51,6 +51,16 @@ echo "Installation complete successfully"
 This script meets the requirement of the client for a simple installation,
 however, it could be simplified so that the user does not need to execute the program by typing ``bash install.sh``
 
+### problem solving
+1. How to detect if a word's length is odd or even
+```.sh
+if [ $len%2 -eq 0 ]
+```
+2. How to create an uninstall program
+```.sh
+rm -R AppFolder
+```
+
 Evaluation
 -----------
 
