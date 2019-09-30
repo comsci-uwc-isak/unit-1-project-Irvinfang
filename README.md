@@ -70,6 +70,14 @@ The following steps describe the algorithm
 `echo "Lxq912 nissan 2000 8" >> maincarfile.txt`
 `echo " " > plate.txt`
 
+### Developing the action Record
+1. Get the arguments (2) and check
+2. check that the car exist (check if a file exists in bash)
+3. add a new line to the file license.txt
+4. End
+
+*line to = >>
+
 Evaluation
 -----------
 
