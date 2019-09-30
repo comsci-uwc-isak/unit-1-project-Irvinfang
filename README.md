@@ -60,6 +60,15 @@ if [ $len%2 -eq 0 ]
 ```.sh
 rm -R AppFolder
 ```
+### Developing the action Create new car
+This process involves the inputs _,_,_,_, and the outputs:
+The following steps describe the algorithm
+1. Get the inputs as arguments `$1,$2,$3,$4`
+2. check number of arguments (4) `$#`
+3. Store new car inside `maincarfile.txt`
+4. Create file for recording trips as plate.txt
+`echo "Lxq912 nissan 2000 8" >> maincarfile.txt`
+`echo " " > plate.txt`
 
 Evaluation
 -----------
