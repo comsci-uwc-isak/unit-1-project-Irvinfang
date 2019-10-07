@@ -94,6 +94,7 @@ The following steps describe the algorithm
 
 Evaluation
 -----------
-
+Test 1: A car can be created and stared in the database
+For this purpose we will create the file testCreate.sh. This is called software testing
 
 
