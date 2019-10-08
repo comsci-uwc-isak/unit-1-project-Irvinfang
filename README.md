@@ -65,6 +65,29 @@ echo "Installation complete successfully"
 This script meets the requirement of the client for a simple installation,
 however, it could be simplified so that the user does not need to execute the program by typing ``bash install.sh``
 
+### 2. Script for uninstallation
+This script will delete the currently installed folders
+```.sh
+#!/bin/bash
+
+#This program deletes the currently installed folders
+
+echo "Starting uninstalling"
+echo "Press enter to uninstall"
+read
+cd ~/Desktop
+
+#delete app folder
+
+cd ~/Desktop
+rm -R RentalCarApp
+
+echo "uninstallation complete successfully"
+
+```
+This script meets the requirement of the client for a simple installation and uninstallation. h
+However, it could be simplified so that the user does not need to execute the program by typing bash install.sh
+
 ### problem solving
 1. How to detect if a word's length is odd or even
 ```.sh
@@ -84,6 +107,31 @@ The following steps describe the algorithm
 `echo "Lxq912 nissan 2000 8" >> maincarfile.txt`
 `echo " " > plate.txt`
 
+```.sh
+#!/bin/bash
+
+#This program creates a car given four arguments
+#License Maker Model Passengers
+
+if [ $# -ne 4 ]; then
+	echo "Error with the number of arguments"
+	echo "Enter License Maker Model Passengers"
+	exit
+fi
+
+#number of arguments is correct, continue
+license=$1
+maker=$2
+model=$3
+pp=$4
+
+#this creates a new line in the file maincarfile.txt inside CarRentalApp
+echo "$license $maker $model $pp" >> ../Database/maincarfile.txt
+echo "" > ../Database/$license.txt
+
+bash frame2 "Installation Completed"
+
+```
 ### Developing the action Record
 1. Get the arguments (2) and check
 2. check that the car exist (check if a file exists in bash)
@@ -96,5 +144,33 @@ Evaluation
 -----------
 Test 1: A car can be created and stared in the database
 For this purpose we will create the file testCreate.sh. This is called software testing
+
+The first test is to check for the file
+```.sh
+#!/bin/bash
+
+#This file checks if the action create successfully addsa new car.
+
+#step 1: navigate to the folder containing the create.sh file
+cd ../scripts/
+if [ -f "create" ]; then
+        echo "File exists, test will start now"
+else
+        echo "File create.sh doesn't exist. Test Failed"
+fi
+
+#step 2: Use the create script to record a new car TXM901 nissan red 9
+bash create TXM901 nissan red 9
+
+#step 3: check that a txt file was created inside the database folder with
+#the license number
+cd ../Database
+if [ -f "TXM901.txt" ]; then
+        echo "Test One: File with the license place created successfully. passe$
+else
+        echo "Tes one: file with license number not found: failing"
+fi
+```
+This file check all the criteria.
 
 
