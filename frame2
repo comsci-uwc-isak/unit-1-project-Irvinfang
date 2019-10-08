@@ -1,0 +1,62 @@
+#!/bin/bash
+
+word=$1
+len=${#word}
+padding=3
+
+#length of the frame
+width=80
+(( spaces=$width/2-$len/2-1 )) 
+# Print a whole line with symbol
+for (( i=0; i<$width; i++ ))
+do
+	echo -n "#"
+done
+echo " " #this is for going down one line 
+
+#prints the padding
+for (( p=1; p<padding ; p++ ))
+do
+	echo -n "#"
+	for (( s=0; s<$width-2; s++ ))
+	do
+		echo -n " "
+	done
+	echo "#"
+done
+
+#line for the word
+echo -n "#"
+for (( s=0;s<$spaces;s++ ))
+do
+	echo -n " "
+done 
+
+if [[ ($len%2 -eq 0) ]]; then
+   (( padding=$padding-1 ))
+fi
+
+echo -n $word
+for (( s=0;s<$spaces;s++ ))
+do
+        echo -n " "
+done
+echo "#"
+
+#prints the padding
+for (( p=1; p<padding ; p++ ))
+do
+        echo -n "#"
+        for (( s=0; s<$width-2; s++ ))
+        do
+                echo -n " "
+        done
+        echo "#"
+done
+
+#print bottom frame
+for (( i=0; i<$width; i++ ))
+do
+        echo -n "#"
+done
+echo " " #this is for going down one line
