@@ -140,6 +140,19 @@ bash frame2 "Installation Completed"
 
 *line to = >>
 
+### Developing Help files
+We wil be using man pages to create a help file, almost all UNIX like oses comes preinstalled with man pages. It is a document processing system developed by AT&T for the Unix operating system.
+```.sh
+.TH man 6 "29 Oct 2019" "1.0" "create man page"
+.SH NAME
+create \- Creates a new car
+.SH SYNOPSIS
+bash create [license] [model] [color] [passengers]
+.SH DESCRIPTION
+create is a bash program that allows to create a new car in the database
+.SH AUTHOR
+Irvin Fang
+```
 Evaluation
 -----------
 Test 1: A car can be created and stared in the database
