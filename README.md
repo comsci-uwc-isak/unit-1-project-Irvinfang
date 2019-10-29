@@ -142,6 +142,7 @@ bash frame2 "Installation Completed"
 
 ### Developing Help files
 We will be using man pages to create a help file, almost all UNIX like oses comes preinstalled with man pages. It is a document processing system developed by AT&T for the Unix operating system.
+Below is the code created to explain the create.sh action:
 ```.sh
 .TH man 6 "29 Oct 2019" "1.0" "create man page"
 .SH NAME
