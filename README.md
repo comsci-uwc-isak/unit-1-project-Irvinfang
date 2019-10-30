@@ -39,10 +39,10 @@ Design
 It includes the input/output and main action
 
 ### Table for test plan
-Step  | input
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+step  | input | output | check |
+------------- | ------------- | ------------- | ------------- |
+1. install  | - |
+2. create a car  | LXM907 nissan red 9 |
 
 Development
 --------
