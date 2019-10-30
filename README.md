@@ -258,7 +258,7 @@ Evaluation
 Test 1: A car can be created and stared in the database
 For this purpose we will create the file testCreate.sh. This is called software testing
 
-The **first** test is to check for the file
+The **first** step is to check for the file
 ```.sh
 #!/bin/bash
 
@@ -307,5 +307,12 @@ fi
 ```
 *lastline=$( tail -n 1 mainCarFile.txt ) is used to save and store the last line of any text file into a string.
 
+This resembles to a type of dynamic testing
+This is called dynamic testing because we executed the programmed code with a given test, which means the testing took place while the system was running.
 
+This testing is also a type of alpha testing, meaning only the internal employees and developers of an organization tested the software, compared to beta testing where external clients and end users test.
+
+Lastly, we also tested the code using the white-box method. We used the information and knowledge available about the internals of the system to understand what was wrong and to fix various bugs.
+
+This was also a type of automatic testing, at least in the program we created. The new testing script will be able to control the test executions and then compare the actual results with the predicted or expected results.
 
