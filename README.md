@@ -38,6 +38,8 @@ Design
 **Fig. 1** This diagram shows the main components of the minimal rental app.
 It includes the input/output and main action
 
+### Table for test plan
+
 Development
 --------
 ### 1. Script for installation
@@ -135,10 +137,36 @@ bash frame2 "Installation Completed"
 ### Developing the action Record
 1. Get the arguments (2) and check
 2. check that the car exist (check if a file exists in bash)
+* test license.txt
+* -f license.txt
 3. add a new line to the file license.txt
 4. End
 
 *line to = >>
+
+```.sh
+#!/bin/bash
+
+#This program records a trip in the file of a car provided
+if [ $# -ne 2 ]; then
+	echo "Error with the number of arguments"
+	echo "Enter license distance"
+	exit
+fi
+km=$2
+license=$1
+#check if file exist
+if [ ! -f "$license.txt" ]; then
+	echo "Car does not exist"
+	exit
+fi
+echo "$km" >> $license.txt
+bash frame2 "Trip recorded successfully"
+```
+
+### Developing Backup Files
+There are two methods for backing up the data, one being copying the database to another folder on the desktop, and another being copying the files into a USB stick
+
 
 ### Developing Help files
 We will be using man pages to create a help file, almost all UNIX like oses comes preinstalled with man pages. It is a document processing system developed by AT&T for the Unix operating system.
@@ -185,6 +213,7 @@ else
         echo "Tes one: file with license number not found: failing"
 fi
 ```
-This file check all the criteria.
+This file checks all the criteria.
+The option -f in the if function checks for a file in the working folder
 
 
