@@ -39,11 +39,9 @@ Design
 It includes the input/output and main action
 
 ### Table for test plan
-step            | input | output | check |
--------------   | ------------- | ------------- | ------------- |
-1. install      | - |
-2. create a car | LXM907 nissan red 9 |
-
+Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
+--- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
+Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
 Development
 --------
 ### 1. Script for installation
