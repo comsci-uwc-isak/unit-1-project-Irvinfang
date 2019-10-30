@@ -209,6 +209,35 @@ mkdir dataBase
 # Copy files to USB stick
 cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
 ```
+### Developing the Summary files
+This code gives the user a summary of the distance driven by a single car. We can split
+```.sh
+#!/bin/bash
+#This is an example script that solves the smaller problem for the action summary
+#Read a txt file line by line
+#Split a line by spaces
+#Add thw first word in the line
+License=$1
+FILE="../Database/$License.txt"
+
+#Saves the total km
+totalkm=0
+
+#Reads the text file line by line
+while read line
+do
+  #bash splits a line by spaces
+  for km in $line
+  do
+    #add all the km
+    ((totalkm=$km+$totalkm))
+    break
+  done
+done < $FILE
+
+#4 show very nicely of the total km traveled
+bash frame2 "Total km traveled is $totalkm"
+```
 
 ### Developing Help files
 We will be using man pages to create a help file, almost all UNIX like oses comes preinstalled with man pages. It is a document processing system developed by AT&T for the Unix operating system.
@@ -229,7 +258,7 @@ Evaluation
 Test 1: A car can be created and stared in the database
 For this purpose we will create the file testCreate.sh. This is called software testing
 
-The first test is to check for the file
+The **first** test is to check for the file
 ```.sh
 #!/bin/bash
 
@@ -242,7 +271,15 @@ if [ -f "create" ]; then
 else
         echo "File create.sh doesn't exist. Test Failed"
 fi
+```
+This file checks all the criteria.
+The option -f in the if function checks for a file in the working folder
 
+
+The **Second** step is to use the create script to create a new car, in this example, I will be using TXM901 Nissan red 9 as an example. bash create.sh TXM901 Nissan red 9
+
+The **Third** step is to check if the .txt file was created inside the database folder with the license number
+```.sh
 #step 2: Use the create script to record a new car TXM901 nissan red 9
 bash create TXM901 nissan red 9
 
@@ -252,10 +289,23 @@ cd ../Database
 if [ -f "TXM901.txt" ]; then
         echo "Test One: File with the license place created successfully. passe$
 else
-        echo "Tes one: file with license number not found: failing"
+        echo "Test one: file with license number not found: failing"
 fi
 ```
-This file checks all the criteria.
-The option -f in the if function checks for a file in the working folder
+The **Fourth** step is to check if the last line of the mainCarFile.txt is "TXM901 nissan red 9"
+```.sh
+#Step 4: Check if the last line of the mainCarFile.txt is "TXM901 nissan red 9"
+# Saves the last line of mainCarFile.txt into the variable lastline
+lastline=$( tail -n 1 mainCarFile.txt )
+
+# Checks if the last line is equal to the test case
+if [ "$lastline" == "TXM901 nissan red 9" ]; then
+    echo "Test completed successfully. File created, and information added to mainCarFile.txt"
+else
+    echo "Test failed. No TXM901 in mainCarFile.txt"
+fi
+```
+*lastline=$( tail -n 1 mainCarFile.txt ) is used to save and store the last line of any text file into a string.
+
 
 
