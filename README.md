@@ -167,6 +167,48 @@ bash frame2 "Trip recorded successfully"
 ### Developing Backup Files
 There are two methods for backing up the data, one being copying the database to another folder on the desktop, and another being copying the files into a USB stick
 
+#### Option 1 (Desktop)
+This code backs up the data to a seperate folder on the desktop
+```.sh
+#!/bin/bash
+# This program creates a backup of the database folder in the app folder
+
+# Starting
+echo "Backup starting"
+
+# Navigate to the desktop to create a new folder (backup/)
+cd ~/desktop/
+# If theres already a folder called "backup", it is removed
+rm -r backup
+mkdir backup
+# Creats subfolder (backup/dataBase/)
+cd backup
+mkdir dataBase
+
+# Copies all (*) the files from the dataBase folder 
+# to the new folder (backup/) and subfolder (backup/dataBase/)
+cp ~/desktop/RentalCarApp/dataBase/* ~/desktop/backup/dataBase/
+```
+
+#### Option 2 (USB)
+This code is for backing up to a USB
+```.sh
+# Save to a usb stick
+
+echo -n "What is your USB stick called? "
+read usbName
+
+cd /Volumes/%usbName/
+# If theres already a folder called "backup", it is removed
+rm -r backup
+mkdir backup
+# Creats subfolder (backup/dataBase/)
+cd backup
+mkdir dataBase
+
+# Copy files to USB stick
+cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
+```
 
 ### Developing Help files
 We will be using man pages to create a help file, almost all UNIX like oses comes preinstalled with man pages. It is a document processing system developed by AT&T for the Unix operating system.
