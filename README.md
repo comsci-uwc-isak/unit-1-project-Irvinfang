@@ -20,14 +20,14 @@ The car rental program can be divided into 8 parts which are to install the syst
 I decided to use the bash program to create a series of scripts that can function for the car rental program, and the reason I used bash to create this program is because it is easier to create on the computer, and also because this is the language that I'm currently learning. The way this program works is to create the car profile, and after that the user has to input the details of the car (license plate, car brand, model, and the amount of passengers it can obtain). If the user wants to record the trip distances, they can simply just input the license plate of the car into the recording program and it'll show the total distance the car has traveled.
 ### Success Criteria
 These are outcomes that can be measured
-1. A car can be created
-2. A trip can be recorded for a given car
-3. A summary (total distance travel, average) of trips can be requested
-4. A car information can be edited
-5. A basic working backup system is available
-6. The user can easilly (name notation, documentation) underdstand the commands
+1. A car can be created and stored in the database
+2. A car information can be edited
+3. A car information can be deleted
+4. A summary (total distance travel, average) of trips can be requested
+5. A trip can be recorded for a given car
+6. The user can easilly (name notation, documentation) understand the commands
 7. Installation is **simple**, it does not require additional software, one step process
-8. A car information can be deleted
+8. A basic working backup system is available
 
 9. The application can be uninstalled
 
@@ -256,9 +256,36 @@ Irvin Fang
 ```
 Evaluation
 -----------
-Test 1: A car can be created and stared in the database
-For this purpose we will create the file testCreate.sh. This is called software testing
 
+### Evaluating the success criteria
+
+|    SUCCESS CRITERIA                                                     |   MET?  |
+| ----------------------------------------------------------------------- | ------- |
+| A car can be created and stored in database				  |   Yes   |
+|									  |	    |
+| The installation is simple-> one step process				  |   Yes   |
+|									  |         |
+| A car infromation can be edited					  |   Yes   |
+|									  |         |
+| A car can be deleted from the database				  |   Yes   |
+|									  |	    |
+| A summary (total/avrage distance traveled) can be generated             |   Yes   |         
+| for particular car 							  |         |
+|									  |         |
+| Trips can be recorded and stored for an existing car 			  |   Yes   |
+| 									  |         |
+|									  |         |
+| Easy commands that allow to enter the detail of the trip distance (km)  |   Yes   |
+|									  |         |
+| A basic permanent storage system and backup				  |   Yes   |
+|									  |         |
+| A command to see total statistic					  |   Yes   |
+|									  |         |
+| User-skill independent						  |   Yes   |
+|									  |         |
+| A basic permanent storage system and backup				  |   Yes   |
+
+### Test 1:
 The **first** step is to check for the file
 ```.sh
 #!/bin/bash
