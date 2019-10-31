@@ -161,7 +161,7 @@ if [ ! -f "$license.txt" ]; then
 	echo "Car does not exist"
 	exit
 fi
-echo "$km" >> $license.txt
+echo "$km" >> ../Database/$license.txt
 bash frame2 "Trip recorded successfully"
 ```
 
