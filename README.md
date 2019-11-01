@@ -43,8 +43,82 @@ It includes the input/output and main action
 
 Development
 --------
-### 1. Script for installation
+### Script for frame
+Steps:
+1.The user will input a word / phrase
+2.Print out * around the word to make a nice looking frame
+3.Print it out to the terminal
+```.sh
+
+word=$1
+len=${#word}
+padding=3
+
+#length of the frame
+width=80
+(( spaces=$width/2-$len/2-1 )) 
+# Print a whole line with symbol
+for (( i=0; i<$width; i++ ))
+do
+	echo -n "#"
+done
+echo " " #this is for going down one line 
+
+#prints the padding
+for (( p=1; p<padding ; p++ ))
+do
+	echo -n "#"
+	for (( s=0; s<$width-2; s++ ))
+	do
+		echo -n " "
+	done
+	echo "#"
+done
+
+#line for the word
+echo -n "#"
+for (( s=0;s<$spaces;s++ ))
+do
+	echo -n " "
+done 
+
+if [[ ($len%2 -eq 0) ]]; then
+   (( padding=$padding-1 ))
+fi
+
+echo -n $word
+for (( s=0;s<$spaces;s++ ))
+do
+        echo -n " "
+done
+echo "#"
+
+#prints the padding
+for (( p=1; p<padding ; p++ ))
+do
+        echo -n "#"
+        for (( s=0; s<$width-2; s++ ))
+        do
+                echo -n " "
+        done
+        echo "#"
+done
+
+#print bottom frame
+for (( i=0; i<$width; i++ ))
+do
+        echo -n "#"
+done
+echo " " #this is for going down one line
+```
+
+### Script for installation
 The script below creates the folder structure for the application
+Steps:
+1.Move to Desktop
+2.Create the CarRentalApp folder
+3.Go inside the folder and install the required folders ( database, scripts, test ) 
+The following script creates the app folder and inside it creates two more folders
 ```.sh
 #!/bin/bash
 
@@ -65,11 +139,14 @@ mkdir scripts
 echo "Installation complete successfully"
 
 ```
-This script meets the requirement of the client for a simple installation,
-however, it could be simplified so that the user does not need to execute the program by typing ``bash install.sh``
+This script meets the requirement of the client for a simple installation, since the user only has to press enter to create the folders
 
-### 2. Script for uninstallation
+### Script for uninstallation
 This script will delete the currently installed folders
+Steps:
+Move to Desktop
+Echo if user presses enter, it will start uninstalling
+If user presses enter, delete the folder with everything inside of it
 ```.sh
 #!/bin/bash
 
@@ -88,8 +165,7 @@ rm -R RentalCarApp
 echo "uninstallation complete successfully"
 
 ```
-This script meets the requirement of the client for a simple installation and uninstallation. h
-However, it could be simplified so that the user does not need to execute the program by typing bash install.sh
+The program works very easily, since the only thing that we have to use rm -r instead of rm. This is because you want to delete not only the folder but also everything that it contains, that is why we use -r.
 
 ### problem solving
 1. How to detect if a word's length is odd or even
@@ -100,7 +176,7 @@ if [ $len%2 -eq 0 ]
 ```.sh
 rm -R AppFolder
 ```
-### Developing the action Create new car
+### Script for creating new car
 This process involves the inputs _,_,_,_, and the outputs:
 The following steps describe the algorithm
 1. Get the inputs as arguments `$1,$2,$3,$4`
@@ -135,7 +211,113 @@ echo "" > ../Database/$license.txt
 bash frame2 "Installation Completed"
 
 ```
-### Developing the action Record
+
+### Script for editing car
+Steps:
+Check if the user enters 4 arguments
+Check if the car we want to edit exists
+Find the line with the license in the maincarfile.txt
+Rewrite the line with the arguments the user entered
+```.sh
+#This program edit the information of an exiting car in the
+#maincarfile
+#user enters [license place] [model] [red] [pp]
+
+if [ $# -ne 4 ]; then
+  echo "Error with the number of arguments"
+  echo "Enter License Maker Model Passengers"
+  exit
+fi
+
+license=$1
+maker=$2
+model=$3
+pp=$4
+
+cd ../Database
+
+if [ ! -f "$license.txt" ]; then
+  echo "File not found!"
+fi
+
+#find the line with the given car plate and delete it
+sed -i '' "/^$license/d" maincarfile.txt
+#add the new information
+echo "$license $maker $model $pp" >> maincarfile.txt
+cd ../scripts
+bash frame2 "Car edited successfully"
+```
+I didn't know what was sed -i when i was coding this script, because i didn't know what the word in this command means. It looks very complicated but it is very efficient when coding the script helps to locate the line containing the word that you need to find. 
+
+### Script for deleting car
+Steps:
+1.Check if the file exists
+2.Check if only one argument is entered
+3.Delete the license.txt file in database
+4.Delete the line containing that license plate in maincarfile.txt
+```.sh
+#this program delete a car given one argument
+#licenses 
+
+if [ $# -ne 1 ]; then rm -rf 
+	echo "error with the number of arguments"
+	echo " enter license"
+	exit 
+fi 
+
+#number of the arguments is correct, continue 
+license=$1
+
+#this deletes an existing file maincarfile.txt inside CarRentalApp 
+cd ../Database
+sed -i '' "/^$license/d" maincarfile.txt
+
+cd ../scripts
+bash frame2 "car deleted successufully"
+```
+
+### Script for summary of the total distance traveled
+Steps:
+1.Check if only one argument is entered
+2.Check if the car exists
+3.Read the file, while adding all the kilometeres traveled in each line together
+4.Print out in the terminal the total distance traveled of that car
+```.sh
+#This is an example script that solves the smaller problem for the action summary
+#Read a txt file line by line
+#Split a line by spaces
+#Add the first word in the line
+
+#checks number of arguments
+if [ $# -ne 1 ]; then
+  echo "Enter a license plate"
+  exit
+fi
+
+License=$1
+FILE="$License.txt"
+cd ../Database
+#Saves the total km
+totalkm=0
+
+#Reads the text file line by line
+while read line
+do
+  #bash splits a line by spaces
+  for km in $line
+  do
+    #add all the km
+    ((totalkm=$km+$totalkm))
+    break
+  done
+done < $FILE
+
+cd ../scripts
+#4 show very nicely of the total km traveled
+bash frame2 "Total km traveled is $totalkm"
+```
+
+### Script for recording a trip
 1. Get the arguments (2) and check
 2. check that the car exist (check if a file exists in bash)
 * test license.txt
@@ -209,35 +391,6 @@ mkdir dataBase
 
 # Copy files to USB stick
 cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
-```
-### Developing the Summary files
-This code gives the user a summary of the distance driven by a single car. We can split
-```.sh
-#!/bin/bash
-#This is an example script that solves the smaller problem for the action summary
-#Read a txt file line by line
-#Split a line by spaces
-#Add thw first word in the line
-License=$1
-FILE="../Database/$License.txt"
-
-#Saves the total km
-totalkm=0
-
-#Reads the text file line by line
-while read line
-do
-  #bash splits a line by spaces
-  for km in $line
-  do
-    #add all the km
-    ((totalkm=$km+$totalkm))
-    break
-  done
-done < $FILE
-
-#4 show very nicely of the total km traveled
-bash frame2 "Total km traveled is $totalkm"
 ```
 
 ### Developing Help files
