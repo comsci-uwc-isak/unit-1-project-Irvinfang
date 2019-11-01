@@ -39,7 +39,8 @@ Design
 It includes the input/output and main action
 
 ### Table for test plan
-
+![CarRental](testplan1.png)
+![CarRental](testplan2.png)
 
 Development
 --------
