@@ -174,6 +174,8 @@ echo "uninstallation complete successfully"
 ```
 The program works very easily, since the only thing that we have to use rm -r instead of rm. This is because you want to delete not only the folder but also everything that it contains, that is why we use -r.
 
+This is the flow chart for the uninstall program
+![CarRental](uninstallchart.png)
 ### problem solving
 1. How to detect if a word's length is odd or even
 ```.sh
@@ -365,26 +367,20 @@ echo "Total: $s km"
 *line to = >>
 
 ```.sh
-#!/bin/bash
-
 #This program records a trip in the file of a car provided
-if [ $# -ne 2 ]; then
+if [ $# -ne 4 ]; then
 	echo "Error with the number of arguments"
-	echo "Enter license distance"
+	echo "Enter license distance date in date out"
 	exit
-fi
-km=$2
-license=$1
-#check if file exist
-if [ ! -f "$license.txt" ]; then
-	echo "Car does not exist"
+elif [ ! -f "$1.txt" ]; then
+	echo "File not found!"
 	exit
-fi
-echo "$km" >> ../Database/$license.txt
+else 
+echo "$2 $3 $4" >> $1.txt
+cd ../scripts
 bash frame2 "Trip recorded successfully"
+fi
 ```
-This flowchart shows the process behind the script of recording a car trip
-![CarRental](recordchart.png)
 
 ### Developing Backup Files
 There are two methods for backing up the data, one being copying the database to another folder on the desktop, and another being copying the files into a USB stick
