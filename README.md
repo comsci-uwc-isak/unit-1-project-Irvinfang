@@ -281,7 +281,7 @@ cd ../scripts
 bash frame2 "car deleted successufully"
 ```
 
-### Script for summary of the total distance traveled
+### Script for summary of the total distance for one car
 Steps:
 1.Check if only one argument is entered
 2.Check if the car exists
@@ -321,7 +321,37 @@ cd ../scripts
 #4 show very nicely of the total km traveled
 bash frame2 "Total km traveled is $totalkm"
 ```
-
+### Script for summary for all
+Steps:
+1.Read the maincarfile.txt to find all of the car names, so that we can know all the license.txt files
+2.Redo what we did in the summary.sh file
+3.Print out the name of the plate, and all the trips of that car to the user ( for every car )
+4.Print out the sum of the distance traveled
+```.sh
+#!/bin/bash
+# This program gives the total distance traveled of all the cars in the db folder
+cd ~/Desktop/ComSci/CarRentalApp/Database
+s=0
+while read LINE 
+do
+  for WORD in $LINE
+    do
+      echo "Distance traveled of $WORD: "
+      while read line
+      do
+         for word1 in $line
+         do
+                echo -n "$word1 "
+               ((s=s+word1))
+                break
+        done
+      done < $WORD.txt
+      echo
+      break
+    done
+done < maincarfile.txt
+echo "Total: $s km"
+```
 ### Script for recording a trip
 1. Get the arguments (2) and check
 2. check that the car exist (check if a file exists in bash)
