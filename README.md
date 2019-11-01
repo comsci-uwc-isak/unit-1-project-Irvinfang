@@ -382,6 +382,8 @@ fi
 echo "$km" >> ../Database/$license.txt
 bash frame2 "Trip recorded successfully"
 ```
+This flowchart shows the process behind the script of recording a car trip
+![CarRental](recordchart.png)
 
 ### Developing Backup Files
 There are two methods for backing up the data, one being copying the database to another folder on the desktop, and another being copying the files into a USB stick
