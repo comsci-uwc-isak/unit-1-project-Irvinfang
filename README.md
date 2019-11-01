@@ -46,9 +46,9 @@ Development
 --------
 ### Script for frame
 Steps:
-1.The user will input a word / phrase
-2.Print out * around the word to make a nice looking frame
-3.Print it out to the terminal
+1. The user will input a word / phrase
+2. Print out * around the word to make a nice looking frame
+3. Print it out to the terminal
 ```.sh
 
 word=$1
@@ -121,9 +121,9 @@ This flowchart shows the process behind the script that creates a frame around a
 ### Script for installation
 The script below creates the folder structure for the application
 Steps:
-1.Move to Desktop
-2.Create the CarRentalApp folder
-3.Go inside the folder and install the required folders ( database, scripts, test ) 
+1. Move to Desktop
+2. Create the CarRentalApp folder
+3. Go inside the folder and install the required folders ( database, scripts, test ) 
 The following script creates the app folder and inside it creates two more folders
 ```.sh
 #!/bin/bash
@@ -150,9 +150,9 @@ This script meets the requirement of the client for a simple installation, since
 ### Script for uninstallation
 This script will delete the currently installed folders
 Steps:
-Move to Desktop
-Echo if user presses enter, it will start uninstalling
-If user presses enter, delete the folder with everything inside of it
+1. Move to Desktop
+2. Echo if user presses enter, it will start uninstalling
+3. If user presses enter, delete the folder with everything inside it
 ```.sh
 #!/bin/bash
 
@@ -220,10 +220,10 @@ bash frame2 "Installation Completed"
 
 ### Script for editing car
 Steps:
-Check if the user enters 4 arguments
-Check if the car we want to edit exists
-Find the line with the license in the maincarfile.txt
-Rewrite the line with the arguments the user entered
+1. Check if the user enters 4 arguments
+2. Check if the car we want to edit exists
+3. Find the line with the license in the maincarfile.txt
+4. Rewrite the line with the arguments the user entered
 ```.sh
 #This program edit the information of an exiting car in the
 #maincarfile
@@ -257,10 +257,10 @@ I didn't know what was sed -i when i was coding this script, because i didn't kn
 
 ### Script for deleting car
 Steps:
-1.Check if the file exists
-2.Check if only one argument is entered
-3.Delete the license.txt file in database
-4.Delete the line containing that license plate in maincarfile.txt
+1. Check if the file exists
+2. Check if only one argument is entered
+3. Delete the license.txt file in database
+4. Delete the line containing that license plate in maincarfile.txt
 ```.sh
 #this program delete a car given one argument
 #licenses 
@@ -282,12 +282,12 @@ cd ../scripts
 bash frame2 "car deleted successufully"
 ```
 
-### Script for summary of the total distance for one car
+### Script for summary for one car
 Steps:
-1.Check if only one argument is entered
-2.Check if the car exists
-3.Read the file, while adding all the kilometeres traveled in each line together
-4.Print out in the terminal the total distance traveled of that car
+1. Check if only one argument is entered
+2. Check if the car exists
+3. Read the file, while adding all the kilometeres traveled in each line together
+4. Print out in the terminal the total distance traveled of that car
 ```.sh
 #This is an example script that solves the smaller problem for the action summary
 #Read a txt file line by line
@@ -324,10 +324,10 @@ bash frame2 "Total km traveled is $totalkm"
 ```
 ### Script for summary for all
 Steps:
-1.Read the maincarfile.txt to find all of the car names, so that we can know all the license.txt files
-2.Redo what we did in the summary.sh file
-3.Print out the name of the plate, and all the trips of that car to the user ( for every car )
-4.Print out the sum of the distance traveled
+1. Read the maincarfile.txt to find all of the car names, so that we can know all the license.txt files
+2. Redo what we did in the summary.sh file
+3. Print out the name of the plate, and all the trips of that car to the user ( for every car )
+4. Print out the sum of the distance traveled
 ```.sh
 #!/bin/bash
 # This program gives the total distance traveled of all the cars in the db folder
