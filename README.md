@@ -430,7 +430,8 @@ cp ~/desktop/RentalCarApp/dataBase/* /Volumes/$usbName/backup/dataBase/
 
 ### Developing Help files
 We will be using man pages to create a help file, almost all UNIX like oses comes preinstalled with man pages. It is a document processing system developed by AT&T for the Unix operating system.
-Below is the code created to explain the create.sh action:
+
+create
 ```.sh
 .TH man 6 "29 Oct 2019" "1.0" "create man page"
 .SH NAME
@@ -442,6 +443,31 @@ create is a bash program that allows to create a new car in the database
 .SH AUTHOR
 Irvin Fang
 ```
+install
+```.sh
+.TH man 6 "31 Oct 2019" "1.0" "install man page"
+.SH NAME
+install \- install CarRentalApp
+.SH SYNOPSIS
+bash install.sh
+.SH DESCRIPTION
+install is a script that installs CarRentalApp (creates main folder and the contents inside it: test script database)
+.SH AUTHOR
+Irvin Fang
+```
+uninstall
+```.sh
+.TH man 6 "31 Oct 2019" "1.0" "Uninstall man page"
+.SH NAME
+uninstall \- uninstall CarRentalApp
+.SH SYNOPSIS
+bash uninstall.sh
+.SH DESCRIPTION
+uninstall is a script that uninstalls CarRentalApp (deletes all files inside of the folder)
+.SH AUTHOR
+Irvin Fang
+```
+
 Evaluation
 -----------
 
