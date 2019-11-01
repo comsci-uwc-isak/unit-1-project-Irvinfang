@@ -145,6 +145,7 @@ mkdir scripts
 echo "Installation complete successfully"
 ```
 This script meets the requirement of the client for a simple installation, since the user only has to press enter to create the folders
+
 This is the flow chart for creating the installation program
 ![CarRental](installchart.png)
 ### Script for uninstallation
