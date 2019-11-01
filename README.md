@@ -23,7 +23,7 @@ These are outcomes that can be measured
 1. A car can be created and stored in the database
 2. A car information can be edited
 3. A car information can be deleted
-4. A summary (total distance travel, average) of trips can be requested
+4. A summary (total distance travel) of trips can be requested
 5. A trip can be recorded for a given car
 6. The user can easilly (name notation, documentation) understand the commands
 7. Installation is **simple**, it does not require additional software, one step process
