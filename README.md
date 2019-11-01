@@ -446,32 +446,8 @@ Evaluation
 -----------
 
 ### Evaluating the success criteria
-
-|    SUCCESS CRITERIA                                                     |   MET?  |
-| ----------------------------------------------------------------------- | ------- |
-| A car can be created and stored in database				  |   Yes   |
-|									  |	    |
-| A car infromation can be edited				          |   Yes   |
-|									  |         |
-| A car can be deleted from the database			          |   Yes   |
-|									  |         |
-| User can easily understand the commands (name notation, documentation)  |   Yes   |
-|									  |	    |
-| Trips can be recorded and stored for an existing car                    |   Yes   |         
-|  							                  |         |
-|									  |         |
-| A summary (total/average distance traveled) can be generated		  |   Yes   |
-| for a particular car				                          |         |
-|									  |         |
-| The installation is simple-> one step process                           |   Yes   |
-|									  |         |
-| A basic backup system is available				          |   Yes   |
-|									  |         |
-| The application can be uninstalled					  |   Yes   |
-|									  |         |
-| User-skill independent						  |   Yes   |
-|									  |         |
-| A basic permanent storage system and backup				  |   Yes   |
+This is the evaluation table for the program
+![CarRental](testplan.png)
 
 ### Test 1:
 The **first** step is to check for the file
