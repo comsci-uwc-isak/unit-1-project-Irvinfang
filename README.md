@@ -1,4 +1,10 @@
 ![CarRental](logo.png)
+```.py
+Marks= 22
+Demo= 4
+Total=(Marks+Demo)= 26
+```
+**Graded on Nov 8**
 
 Car Rental Minimal App
 ===========================
@@ -31,6 +37,16 @@ These are outcomes that can be measured
 
 9. The application can be uninstalled
 
+**Criterion A**
+
+|Level|Descriptor|
+|----|-----|
+|5|The client in the car rental office is identified and his situation described. The rationale for choosing the proposed product (Computer tools used) is justified and includes a range of appropriate criteria for evaluating the success of the product.|
+```.sh
+Rational
+* Great job with this criterion. You could improve the definition of the problem by answering the questions: Who is the client? Why is the product being developed?
+```
+
 Design
 ---------
 ### First sketch of system
@@ -41,6 +57,18 @@ It includes the input/output and main action
 ### Table for test plan
 ![CarRental](testplan1.png)
 ![CarRental](testplan2.png)
+
+## Criterion B
+|**level**|**Description**|
+|-----|------------|
+|9|An outline test plan, are detailed and complete. A system diagram and at least 3 flow diagrams for algorithms in the product are included. From this information it is clear how the product was developed.|
+```.sh
+Rationale
+* You can use the figure as a reference point and refeer to it with Fig. 1. For example: "As shown in Fig. 1, the computational system consists of ..." This is necessary to be concrete about the reason from including the picture.
+* Here you did not get all the full marks because you are missing the description. Remember, an image without description is an unbiguous tool. Add a paragraph explaining what YOU see in the image and the reason why you included. This will help the reader follow your ideas. 
+* The flow diagrams look good. The symbols are all correct.
+* The test plan works great in the table. For a table you also need Table Caption: "Table 1. Test plant", and description paragraph: "As we can see in Table 1 the test plan consists of ..."
+```
 
 Development
 --------
@@ -467,6 +495,16 @@ uninstall is a script that uninstalls CarRentalApp (deletes all files inside of 
 .SH AUTHOR
 Irvin Fang
 ```
+## Criterion C
+|**level**|**Description**|
+|-----|------------|
+|5|The proposed solution is characterized by the appropriate use of existing tools. The techniques are adequate for the task and their use is explained. All sources are identified.|
+```.sh
+Rationale
+* You also need description here about the important parts of the code, such as things you learned for the first time, issues and solutions.
+* Try to use the references in body of the document in the place where you use the information, for example, when researching solutions to the problems you faced," As presented in [1], bash can be frustrating..."
+*Good job with the ManPages
+```
 
 Evaluation
 -----------
@@ -534,3 +572,13 @@ Lastly, we also tested the code using the white-box method. We used the informat
 
 This was also a type of automatic testing, at least in the program we created. The new testing script will be able to control the test executions and then compare the actual results with the predicted or expected results.
 
+## Criterion D
+|**level**|**Description**|
+|-----|------------|
+|3|The product is fully evaluated against the success criteria identified in criterion A. Recommendations for further improvement of the product are realistic.|
+```.sh
+Rationale
+* The test plan is different of the success criteria. This time it was a conincidence that testing the product was also testing the criteria, but you will need to separate these two sections.
+*The evidence for the achievement of the criteria is limited so you lost some marks here. Next time, try to expand of the reasons/evidence that allows you to say that you have met the success criteria. Writing "This file check all the criteria" is not sufficient.
+* You forgot the improvement for the future.
+```
